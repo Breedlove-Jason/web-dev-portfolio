@@ -161,9 +161,32 @@
     animation: hero-panel-glow 6s ease-in-out infinite;
   }
 
+  @keyframes hero-profile-glow-pulse {
+    0%,
+    100% {
+      opacity: 0.45;
+      transform: scale(0.96);
+    }
+
+    50% {
+      opacity: 0.85;
+      transform: scale(1.04);
+    }
+  }
+
+  .hero-profile-glow {
+    animation: hero-profile-glow-pulse 6s ease-in-out infinite;
+  }
+
+  .hero-profile-glow-secondary {
+    animation: hero-profile-glow-pulse 8s ease-in-out infinite reverse;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-deck-glow,
-    .hero-deck-panel {
+    .hero-deck-panel,
+    .hero-profile-glow,
+    .hero-profile-glow-secondary {
       animation: none;
     }
 

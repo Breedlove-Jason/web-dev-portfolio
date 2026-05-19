@@ -1,5 +1,6 @@
 import { GlassCard } from "@/components/ui/GlassCard";
 import { NeonButton } from "@/components/ui/NeonButton";
+import { NeuralProfileArtifact } from "@/components/ui/NeuralProfileArtifact";
 import { SignalPill } from "@/components/ui/SignalPill";
 import { cn } from "@/lib/utils";
 
@@ -103,59 +104,69 @@ export function HeroCommandDeck() {
           </ul>
         </div>
 
-        <div className="relative lg:justify-self-end">
-          <div
-            className="hero-deck-glow pointer-events-none absolute -inset-3 rounded-2xl bg-cyan/5 blur-2xl"
-            aria-hidden
-          />
-          <div className="hero-deck-panel glass-panel relative overflow-hidden rounded-2xl">
-            <header className="flex items-center gap-3 border-b border-[var(--panel-border)] px-4 py-3 sm:px-5">
-              <div className="flex gap-1.5" aria-hidden>
-                {terminalDots.map(({ color, label }) => (
-                  <span
-                    key={label}
-                    className={cn("size-2.5 rounded-full", color)}
-                    title={label}
-                  />
-                ))}
-              </div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-cyan sm:text-xs">
-                System Status
-              </p>
-            </header>
+        <div className="relative">
+          <div className="relative z-0 mx-auto -mb-14 w-full max-w-140 sm:-mb-18 lg:-mb-22">
+            <div className="mb-3 text-center font-mono text-[0.65rem] uppercase tracking-[0.45em] text-cyan-300/80">
+              Neural identity <span className="text-fuchsia-400">{"//"}</span>{" "}
+              online
+            </div>
+            <NeuralProfileArtifact />
+          </div>
 
-            <div className="space-y-4 p-4 sm:p-5">
-              <div
-                className="rounded-lg border border-[var(--panel-border)] bg-bg-deep/60 p-3 sm:p-4"
-                role="group"
-                aria-label="System terminal output"
-              >
-                <ul className="space-y-1.5 font-mono text-xs leading-relaxed text-text-muted sm:text-sm">
-                  {terminalLines.map((line) => (
-                    <li key={line} className="flex gap-2">
-                      <span className="shrink-0 text-cyan" aria-hidden>
-                        &gt;
-                      </span>
-                      <span className="text-text-soft/90">{line}</span>
+          <div className="relative z-10">
+            <div
+              className="hero-deck-glow pointer-events-none absolute -inset-3 rounded-2xl bg-cyan/5 blur-2xl"
+              aria-hidden
+            />
+            <div className="hero-deck-panel glass-panel relative overflow-hidden rounded-2xl">
+              <header className="flex items-center gap-3 border-b border-(--panel-border) px-4 py-3 sm:px-5">
+                <div className="flex gap-1.5" aria-hidden>
+                  {terminalDots.map(({ color, label }) => (
+                    <span
+                      key={label}
+                      className={cn("size-2.5 rounded-full", color)}
+                      title={label}
+                    />
+                  ))}
+                </div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-cyan sm:text-xs">
+                  System Status
+                </p>
+              </header>
+
+              <div className="space-y-4 p-4 sm:p-5">
+                <div
+                  className="rounded-lg border border-(--panel-border) bg-bg-deep/60 p-3 sm:p-4"
+                  role="group"
+                  aria-label="System terminal output"
+                >
+                  <ul className="space-y-1.5 font-mono text-xs leading-relaxed text-text-muted sm:text-sm">
+                    {terminalLines.map((line) => (
+                      <li key={line} className="flex gap-2">
+                        <span className="shrink-0 text-cyan" aria-hidden>
+                          &gt;
+                        </span>
+                        <span className="text-text-soft/90">{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {statCards.map(({ title, detail }) => (
+                    <li key={title}>
+                      <GlassCard className="hero-stat-card h-full p-4 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-cyan/25 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--cyan)_12%,transparent)]">
+                        <h2 className="mb-1.5 text-sm font-semibold text-cyan">
+                          {title}
+                        </h2>
+                        <p className="text-xs leading-relaxed text-text-muted">
+                          {detail}
+                        </p>
+                      </GlassCard>
                     </li>
                   ))}
                 </ul>
               </div>
-
-              <ul className="grid gap-3 sm:grid-cols-2">
-                {statCards.map(({ title, detail }) => (
-                  <li key={title}>
-                    <GlassCard className="hero-stat-card h-full p-4 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-cyan/25 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--cyan)_12%,transparent)]">
-                      <h2 className="mb-1.5 text-sm font-semibold text-cyan">
-                        {title}
-                      </h2>
-                      <p className="text-xs leading-relaxed text-text-muted">
-                        {detail}
-                      </p>
-                    </GlassCard>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>

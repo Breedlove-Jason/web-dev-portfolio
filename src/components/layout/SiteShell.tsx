@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 const navLinks = [
   { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
   { label: "Lab", href: "#lab" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
@@ -23,7 +24,7 @@ export function SiteShell({ children }: SiteShellProps) {
         aria-hidden
       />
 
-      <header className="relative z-10 border-b border-[var(--panel-border)] bg-panel/70 backdrop-blur-md">
+      <header className="relative z-10 border-b border-(--panel-border) bg-panel/70 backdrop-blur-md">
         <nav
           className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8"
           aria-label="Main"
@@ -36,12 +37,12 @@ export function SiteShell({ children }: SiteShellProps) {
             <span className="text-text-soft">Lab</span>
           </a>
 
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:justify-end sm:gap-x-6">
+          <ul className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:justify-end sm:gap-x-6">
             {navLinks.map(({ label, href }) => (
               <li key={href}>
                 <a
                   href={href}
-                  className="text-sm text-text-muted transition-colors hover:text-cyan focus-visible:rounded-sm"
+                  className="text-xs text-text-muted transition-colors hover:text-cyan focus-visible:rounded-sm sm:text-sm"
                 >
                   {label}
                 </a>

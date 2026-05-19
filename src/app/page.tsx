@@ -1,7 +1,8 @@
 import { HeroCommandDeck } from "@/components/sections/HeroCommandDeck";
+import { SkillsCommandCenter } from "@/components/sections/SkillsCommandCenter";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { ProjectGalleryView } from "@/components/sections/ProjectGalleryView";
+import { ProjectGalleryView as ProjectGallery } from "@/components/sections/ProjectGalleryView";
 
 const previewCards = [
   {
@@ -21,35 +22,15 @@ const previewCards = [
   },
 ] as const;
 
-const placeholderSections = [
-  {
-    id: "lab",
-    eyebrow: "Lab",
-    title: "Experiments & pipelines",
-    description:
-      "Analytics prototypes, crypto research tools, and AI workflow demos.",
-  },
-  {
-    id: "resume",
-    eyebrow: "Resume",
-    title: "Experience & skills",
-    description: "Timeline, stack, and downloadable resume — placeholder for now.",
-  },
-  {
-    id: "contact",
-    eyebrow: "Contact",
-    title: "Get in touch",
-    description: "Email and social links will land here soon.",
-  },
-] as const;
-
 export default function Home() {
   return (
     <SiteShell>
       <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:px-8 sm:py-14 lg:py-16">
         <HeroCommandDeck />
 
-        <ProjectGalleryView />
+        <ProjectGallery />
+
+        <SkillsCommandCenter />
 
         <section className="mb-14" aria-labelledby="focus-areas-heading">
           <h2
@@ -74,33 +55,80 @@ export default function Home() {
           </ul>
         </section>
 
-        {placeholderSections.map(({ id, eyebrow, title, description }) => (
-          <section
-            key={id}
-            id={id}
-            className="scroll-mt-24 border-t border-(--panel-border) py-12 first:border-t-0 first:pt-0 sm:py-14"
-            aria-labelledby={`${id}-heading`}
-          >
-            <header className="space-y-3">
-              <p className="font-mono text-xs uppercase tracking-[0.3em] sm:text-sm">
-                <span className="text-cyan">{eyebrow}</span>
-                <span className="text-magenta">{" //"}</span>
-              </p>
-              <h2
-                id={`${id}-heading`}
-                className="text-2xl font-semibold tracking-tight text-text-soft sm:text-3xl"
-              >
-                {title}
-              </h2>
-              <p className="max-w-prose text-base leading-relaxed text-text-muted">
-                {description}
-              </p>
-            </header>
-            <p className="mt-4 font-mono text-xs text-text-muted">
-              Section anchor ready — content ships next.
+        <section
+          id="lab"
+          className="scroll-mt-24 border-t border-(--panel-border) py-12 sm:py-14"
+          aria-labelledby="lab-heading"
+        >
+          <header className="space-y-3">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] sm:text-sm">
+              <span className="text-cyan">Lab</span>
+              <span className="text-magenta">{" //"}</span>
             </p>
-          </section>
-        ))}
+            <h2
+              id="lab-heading"
+              className="text-2xl font-semibold tracking-tight text-text-soft sm:text-3xl"
+            >
+              Experiments & pipelines
+            </h2>
+            <p className="max-w-prose text-base leading-relaxed text-text-muted">
+              Analytics prototypes, crypto research tools, and AI workflow demos.
+            </p>
+          </header>
+          <p className="mt-4 font-mono text-xs text-text-muted">
+            Section anchor ready — content ships next.
+          </p>
+        </section>
+
+        <section
+          id="resume"
+          className="scroll-mt-24 border-t border-(--panel-border) py-12 sm:py-14"
+          aria-labelledby="resume-heading"
+        >
+          <header className="space-y-3">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] sm:text-sm">
+              <span className="text-cyan">Resume</span>
+              <span className="text-magenta">{" //"}</span>
+            </p>
+            <h2
+              id="resume-heading"
+              className="text-2xl font-semibold tracking-tight text-text-soft sm:text-3xl"
+            >
+              Experience & skills
+            </h2>
+            <p className="max-w-prose text-base leading-relaxed text-text-muted">
+              Timeline, stack, and downloadable resume — placeholder for now.
+            </p>
+          </header>
+          <p className="mt-4 font-mono text-xs text-text-muted">
+            Section anchor ready — content ships next.
+          </p>
+        </section>
+
+        <section
+          id="contact"
+          className="scroll-mt-24 border-t border-(--panel-border) py-12 sm:py-14"
+          aria-labelledby="contact-heading"
+        >
+          <header className="space-y-3">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] sm:text-sm">
+              <span className="text-cyan">Contact</span>
+              <span className="text-magenta">{" //"}</span>
+            </p>
+            <h2
+              id="contact-heading"
+              className="text-2xl font-semibold tracking-tight text-text-soft sm:text-3xl"
+            >
+              Get in touch
+            </h2>
+            <p className="max-w-prose text-base leading-relaxed text-text-muted">
+              Email and social links will land here soon.
+            </p>
+          </header>
+          <p className="mt-4 font-mono text-xs text-text-muted">
+            Section anchor ready — content ships next.
+          </p>
+        </section>
 
         <footer className="mt-10 border-t border-(--panel-border) pt-8 text-center font-mono text-xs text-text-muted">
           <span className="text-cyan/80">neuralforge</span>
