@@ -9,7 +9,7 @@ Endpoints:
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List
 
 from fastapi import FastAPI
@@ -134,5 +134,5 @@ def submit_contact(payload: ContactMessage) -> ContactResponse:
     return ContactResponse(
         success=True,
         message="Thank you for your message! I'll be in touch within 24 hours.",
-        timestamp=datetime.utcnow().isoformat() + "Z",
+        timestamp=datetime.now(timezone.utc).isoformat(),
     )
