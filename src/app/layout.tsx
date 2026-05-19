@@ -3,18 +3,18 @@ import { Inter, Oxanium, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-inter-sans",
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
 const oxanium = Oxanium({
-  variable: "--font-heading",
+  variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "600", "800"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-inter-mono",
+  variable: "--font-code",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });

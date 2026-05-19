@@ -1,62 +1,85 @@
+import { SiteShell } from "@/components/layout/SiteShell";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { NeonButton } from "@/components/ui/NeonButton";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+
+const previewCards = [
+  {
+    title: "Full-stack systems",
+    description:
+      "Production web apps, APIs, and dashboards built for reliability and scale.",
+  },
+  {
+    title: "Data science comeback",
+    description:
+      "Analytics pipelines, experimentation, and insight-driven product decisions.",
+  },
+  {
+    title: "AI-assisted development",
+    description:
+      "Workflow automation and intelligent tooling that accelerates delivery.",
+  },
+] as const;
+
 export default function Home() {
   return (
-    <main className="mx-auto flex min-h-full w-full max-w-3xl flex-col justify-center px-6 py-16 sm:px-10 sm:py-24">
-      <article
-        className="rounded-2xl border border-[var(--panel-border)] bg-panel p-8 shadow-[0_0_40px_color-mix(in_srgb,var(--cyan)_8%,transparent)] sm:p-12"
-        aria-labelledby="site-title"
-      >
-        <header className="mb-8 space-y-4 border-b border-[var(--panel-border)] pb-8">
-          <p className="font-mono text-xs uppercase tracking-[0.35em] text-cyan sm:text-sm">
-            NeuralForge Lab
-          </p>
-          <h1
-            id="site-title"
-            className="text-3xl font-semibold tracking-tight text-text-soft sm:text-4xl md:text-5xl"
-          >
-            Jason Breedlove
-          </h1>
-          <p className="font-mono text-sm text-violet sm:text-base">
-            Full-stack developer returning to data science
-          </p>
-        </header>
+    <SiteShell>
+      <div className="mx-auto w-full max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
+        <section className="glass-panel mb-10 rounded-2xl p-8 sm:p-10">
+          <SectionHeading
+            eyebrow="NeuralForge Lab"
+            title="Jason Breedlove"
+            description="Full-stack developer returning to data science"
+          />
 
-        <section className="mb-10 space-y-4" aria-labelledby="intro-heading">
-          <h2 id="intro-heading" className="sr-only">
-            About
-          </h2>
-          <p className="max-w-prose text-base leading-relaxed text-text-muted sm:text-lg">
+          <p className="mt-6 max-w-prose text-base leading-relaxed text-text-muted sm:text-lg">
             I build real-world web applications, AI-assisted workflows,
             analytics systems, and interactive products — blending software
-            engineering with data-driven thinking to ship tools that are
-            useful, measurable, and built to last.
+            engineering with data-driven thinking to ship tools that are useful,
+            measurable, and built to last.
           </p>
+
+          <nav
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
+            aria-label="Primary actions"
+          >
+            <NeonButton href="#projects" variant="primary">
+              View Projects
+            </NeonButton>
+            <NeonButton href="/resume.pdf" variant="secondary" download>
+              Download Resume
+            </NeonButton>
+          </nav>
         </section>
 
-        <nav
-          className="flex flex-col gap-3 sm:flex-row sm:gap-4"
-          aria-label="Primary actions"
-        >
-          <a
-            href="#projects"
-            className="inline-flex min-h-11 items-center justify-center rounded-lg border border-cyan/60 bg-cyan/10 px-6 py-2.5 text-center text-sm font-medium text-cyan transition-colors hover:border-cyan hover:bg-cyan/20 focus-visible:outline-offset-2 sm:text-base"
+        <section aria-labelledby="focus-areas-heading">
+          <h2
+            id="focus-areas-heading"
+            className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-text-muted"
           >
-            View Projects
-          </a>
-          <a
-            href="/resume.pdf"
-            className="inline-flex min-h-11 items-center justify-center rounded-lg border border-violet/50 bg-violet/10 px-6 py-2.5 text-center text-sm font-medium text-text-soft transition-colors hover:border-magenta hover:bg-magenta/10 hover:text-magenta focus-visible:outline-offset-2 sm:text-base"
-            download
-          >
-            Download Resume
-          </a>
-        </nav>
-      </article>
+            Focus areas
+          </h2>
+          <ul className="grid gap-4 sm:grid-cols-3">
+            {previewCards.map(({ title, description }) => (
+              <li key={title}>
+                <GlassCard>
+                  <h3 className="mb-2 text-base font-semibold text-text-soft">
+                    {title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-text-muted">
+                    {description}
+                  </p>
+                </GlassCard>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      <footer className="mt-8 text-center font-mono text-xs text-text-muted">
-        <span className="text-cyan/80">neuralforge</span>
-        <span className="text-text-muted"> / </span>
-        <span>command center v0.1</span>
-      </footer>
-    </main>
+        <footer className="mt-10 text-center font-mono text-xs text-text-muted">
+          <span className="text-cyan/80">neuralforge</span>
+          <span> / command center v0.1</span>
+        </footer>
+      </div>
+    </SiteShell>
   );
 }
