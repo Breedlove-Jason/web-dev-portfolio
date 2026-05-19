@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-deep: #050816;
+  --color-panel: #0b1020;
+  --color-cyan: #22d3ee;
+  --color-violet: #a855f7;
+  --color-magenta: #ec4899;
+  --color-text-soft: #e5e7eb;
+  --color-text-muted: #94a3b8;
+  /*--font-sans: var(--font-inter-sans);*/
+  /*--font-mono: var(--font-inter-mono);*/
+  --font-heading: var(--font-heading);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --bg-deep: #050816;
+  --panel: #0b1020;
+  --cyan: #22d3ee;
+  --violet: #a855f7;
+  --magenta: #ec4899;
+  --text-soft: #e5e7eb;
+  --text-muted: #94a3b8;
+  --panel-border: color-mix(in srgb, var(--cyan) 35%, transparent);
+  --glow-cyan: color-mix(in srgb, var(--cyan) 12%, transparent);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    @apply h-full scroll-smooth antialiased;
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  body {
+    @apply min-h-full text-text-soft;
+    background-color: var(--bg-deep);
+    background-image:
+      linear-gradient(var(--glow-cyan) 1px, transparent 1px),
+      linear-gradient(90deg, var(--glow-cyan) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+    background-position: center;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--cyan) 35%, transparent);
+    color: var(--text-soft);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading), system-ui, sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  code, pre, kbd, samp {
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
 }
