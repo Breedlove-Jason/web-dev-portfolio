@@ -32,6 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      suppressHydrationWarning
       lang="en"
       className={`${inter.variable} ${oxanium.variable} ${jetbrainsMono.variable} h-full`}
     >

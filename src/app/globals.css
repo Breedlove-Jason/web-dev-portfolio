@@ -121,4 +121,54 @@
     background-clip: text;
     color: transparent;
   }
+
+  @keyframes hero-deck-glow-pulse {
+    0%,
+    100% {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes hero-panel-glow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--cyan) 8%, transparent) inset,
+        0 0 20px color-mix(in srgb, var(--cyan) 10%, transparent),
+        0 12px 40px color-mix(in srgb, var(--bg-deep) 40%, transparent);
+    }
+
+    50% {
+      box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--cyan) 14%, transparent) inset,
+        0 0 32px color-mix(in srgb, var(--cyan) 16%, transparent),
+        0 0 40px color-mix(in srgb, var(--violet) 8%, transparent),
+        0 12px 40px color-mix(in srgb, var(--bg-deep) 40%, transparent);
+    }
+  }
+
+  .hero-deck-glow {
+    animation: hero-deck-glow-pulse 5s ease-in-out infinite;
+  }
+
+  .hero-deck-panel {
+    animation: hero-panel-glow 6s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-deck-glow,
+    .hero-deck-panel {
+      animation: none;
+    }
+
+    .hero-stat-card:hover {
+      transform: none;
+    }
+  }
 }

@@ -1,7 +1,6 @@
+import { HeroCommandDeck } from "@/components/sections/HeroCommandDeck";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { NeonButton } from "@/components/ui/NeonButton";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const previewCards = [
   {
@@ -21,38 +20,41 @@ const previewCards = [
   },
 ] as const;
 
+const placeholderSections = [
+  {
+    id: "projects",
+    eyebrow: "Projects",
+    title: "Selected work",
+    description: "Case studies and shipped systems — coming in the next build step.",
+  },
+  {
+    id: "lab",
+    eyebrow: "Lab",
+    title: "Experiments & pipelines",
+    description:
+      "Analytics prototypes, crypto research tools, and AI workflow demos.",
+  },
+  {
+    id: "resume",
+    eyebrow: "Resume",
+    title: "Experience & skills",
+    description: "Timeline, stack, and downloadable resume — placeholder for now.",
+  },
+  {
+    id: "contact",
+    eyebrow: "Contact",
+    title: "Get in touch",
+    description: "Email and social links will land here soon.",
+  },
+] as const;
+
 export default function Home() {
   return (
     <SiteShell>
-      <div className="mx-auto w-full max-w-5xl px-6 py-12 sm:px-8 sm:py-16">
-        <section className="glass-panel mb-10 rounded-2xl p-8 sm:p-10">
-          <SectionHeading
-            eyebrow="NeuralForge Lab"
-            title="Jason Breedlove"
-            description="Full-stack developer returning to data science"
-          />
+      <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:px-8 sm:py-14 lg:py-16">
+        <HeroCommandDeck />
 
-          <p className="mt-6 max-w-prose text-base leading-relaxed text-text-muted sm:text-lg">
-            I build real-world web applications, AI-assisted workflows,
-            analytics systems, and interactive products — blending software
-            engineering with data-driven thinking to ship tools that are useful,
-            measurable, and built to last.
-          </p>
-
-          <nav
-            className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
-            aria-label="Primary actions"
-          >
-            <NeonButton href="#projects" variant="primary">
-              View Projects
-            </NeonButton>
-            <NeonButton href="/resume.pdf" variant="secondary" download>
-              Download Resume
-            </NeonButton>
-          </nav>
-        </section>
-
-        <section aria-labelledby="focus-areas-heading">
+        <section className="mb-14" aria-labelledby="focus-areas-heading">
           <h2
             id="focus-areas-heading"
             className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-text-muted"
@@ -62,7 +64,7 @@ export default function Home() {
           <ul className="grid gap-4 sm:grid-cols-3">
             {previewCards.map(({ title, description }) => (
               <li key={title}>
-                <GlassCard>
+                <GlassCard className="transition-[border-color,box-shadow] duration-200 hover:border-cyan/20 hover:shadow-[0_0_16px_color-mix(in_srgb,var(--cyan)_10%,transparent)]">
                   <h3 className="mb-2 text-base font-semibold text-text-soft">
                     {title}
                   </h3>
@@ -75,7 +77,35 @@ export default function Home() {
           </ul>
         </section>
 
-        <footer className="mt-10 text-center font-mono text-xs text-text-muted">
+        {placeholderSections.map(({ id, eyebrow, title, description }) => (
+          <section
+            key={id}
+            id={id}
+            className="scroll-mt-24 border-t border-[var(--panel-border)] py-12 first:border-t-0 first:pt-0 sm:py-14"
+            aria-labelledby={`${id}-heading`}
+          >
+            <header className="space-y-3">
+              <p className="font-mono text-xs uppercase tracking-[0.3em] sm:text-sm">
+                <span className="text-cyan">{eyebrow}</span>
+                <span className="text-magenta">{" //"}</span>
+              </p>
+              <h2
+                id={`${id}-heading`}
+                className="text-2xl font-semibold tracking-tight text-text-soft sm:text-3xl"
+              >
+                {title}
+              </h2>
+              <p className="max-w-prose text-base leading-relaxed text-text-muted">
+                {description}
+              </p>
+            </header>
+            <p className="mt-4 font-mono text-xs text-text-muted">
+              Section anchor ready — content ships next.
+            </p>
+          </section>
+        ))}
+
+        <footer className="mt-10 border-t border-[var(--panel-border)] pt-8 text-center font-mono text-xs text-text-muted">
           <span className="text-cyan/80">neuralforge</span>
           <span> / command center v0.1</span>
         </footer>
