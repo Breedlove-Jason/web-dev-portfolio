@@ -1,4 +1,5 @@
 import { AIWorkflowSection } from "@/components/sections/AIWorkflowSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 import { HeroCommandDeck } from "@/components/sections/HeroCommandDeck";
 import { ResumeSection } from "@/components/sections/ResumeSection";
 import { SkillsCommandCenter } from "@/components/sections/SkillsCommandCenter";
@@ -38,6 +39,8 @@ export default function Home() {
 
         <ResumeSection />
 
+        <ContactSection />
+
         <section className="mb-14" aria-labelledby="focus-areas-heading">
           <h2
             id="focus-areas-heading"
@@ -59,31 +62,6 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <section
-          id="contact"
-          className="scroll-mt-24 border-t border-(--panel-border) py-12 sm:py-14"
-          aria-labelledby="contact-heading"
-        >
-          <header className="space-y-3">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] sm:text-sm">
-              <span className="text-cyan">Contact</span>
-              <span className="text-magenta">{" //"}</span>
-            </p>
-            <h2
-              id="contact-heading"
-              className="text-2xl font-semibold tracking-tight text-text-soft sm:text-3xl"
-            >
-              Get in touch
-            </h2>
-            <p className="max-w-prose text-base leading-relaxed text-text-muted">
-              Email and social links will land here soon.
-            </p>
-          </header>
-          <p className="mt-4 font-mono text-xs text-text-muted">
-            Section anchor ready — content ships next.
-          </p>
         </section>
 
         <footer className="mt-10 border-t border-(--panel-border) pt-8 text-center font-mono text-xs text-text-muted">
