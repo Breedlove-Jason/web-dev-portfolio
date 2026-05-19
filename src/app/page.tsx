@@ -1,4 +1,6 @@
+import { AIWorkflowSection } from "@/components/sections/AIWorkflowSection";
 import { HeroCommandDeck } from "@/components/sections/HeroCommandDeck";
+import { ResumeSection } from "@/components/sections/ResumeSection";
 import { SkillsCommandCenter } from "@/components/sections/SkillsCommandCenter";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -32,6 +34,10 @@ export default function Home() {
 
         <SkillsCommandCenter />
 
+        <AIWorkflowSection />
+
+        <ResumeSection />
+
         <section className="mb-14" aria-labelledby="focus-areas-heading">
           <h2
             id="focus-areas-heading"
@@ -53,56 +59,6 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <section
-          id="lab"
-          className="scroll-mt-24 border-t border-(--panel-border) py-12 sm:py-14"
-          aria-labelledby="lab-heading"
-        >
-          <header className="space-y-3">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] sm:text-sm">
-              <span className="text-cyan">Lab</span>
-              <span className="text-magenta">{" //"}</span>
-            </p>
-            <h2
-              id="lab-heading"
-              className="text-2xl font-semibold tracking-tight text-text-soft sm:text-3xl"
-            >
-              Experiments & pipelines
-            </h2>
-            <p className="max-w-prose text-base leading-relaxed text-text-muted">
-              Analytics prototypes, crypto research tools, and AI workflow demos.
-            </p>
-          </header>
-          <p className="mt-4 font-mono text-xs text-text-muted">
-            Section anchor ready — content ships next.
-          </p>
-        </section>
-
-        <section
-          id="resume"
-          className="scroll-mt-24 border-t border-(--panel-border) py-12 sm:py-14"
-          aria-labelledby="resume-heading"
-        >
-          <header className="space-y-3">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] sm:text-sm">
-              <span className="text-cyan">Resume</span>
-              <span className="text-magenta">{" //"}</span>
-            </p>
-            <h2
-              id="resume-heading"
-              className="text-2xl font-semibold tracking-tight text-text-soft sm:text-3xl"
-            >
-              Experience & skills
-            </h2>
-            <p className="max-w-prose text-base leading-relaxed text-text-muted">
-              Timeline, stack, and downloadable resume — placeholder for now.
-            </p>
-          </header>
-          <p className="mt-4 font-mono text-xs text-text-muted">
-            Section anchor ready — content ships next.
-          </p>
         </section>
 
         <section
