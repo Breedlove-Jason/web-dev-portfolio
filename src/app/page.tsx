@@ -1,6 +1,7 @@
 import { HeroCommandDeck } from "@/components/sections/HeroCommandDeck";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { ProjectGalleryView } from "@/components/sections/ProjectGalleryView";
 
 const previewCards = [
   {
@@ -21,12 +22,6 @@ const previewCards = [
 ] as const;
 
 const placeholderSections = [
-  {
-    id: "projects",
-    eyebrow: "Projects",
-    title: "Selected work",
-    description: "Case studies and shipped systems — coming in the next build step.",
-  },
   {
     id: "lab",
     eyebrow: "Lab",
@@ -53,6 +48,8 @@ export default function Home() {
     <SiteShell>
       <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:px-8 sm:py-14 lg:py-16">
         <HeroCommandDeck />
+
+        <ProjectGalleryView />
 
         <section className="mb-14" aria-labelledby="focus-areas-heading">
           <h2
@@ -81,7 +78,7 @@ export default function Home() {
           <section
             key={id}
             id={id}
-            className="scroll-mt-24 border-t border-[var(--panel-border)] py-12 first:border-t-0 first:pt-0 sm:py-14"
+            className="scroll-mt-24 border-t border-(--panel-border) py-12 first:border-t-0 first:pt-0 sm:py-14"
             aria-labelledby={`${id}-heading`}
           >
             <header className="space-y-3">
@@ -105,7 +102,7 @@ export default function Home() {
           </section>
         ))}
 
-        <footer className="mt-10 border-t border-[var(--panel-border)] pt-8 text-center font-mono text-xs text-text-muted">
+        <footer className="mt-10 border-t border-(--panel-border) pt-8 text-center font-mono text-xs text-text-muted">
           <span className="text-cyan/80">neuralforge</span>
           <span> / command center v0.1</span>
         </footer>
